@@ -29,7 +29,7 @@ git clone https://github.com/trouni/workshop-chrome-extension.git
 
 ### Interacting with the DOM using JavaScript
 
-Before we get started, here is a quick JavaScript refresher on how to target elements of a web page:
+Before we dive into extensions, let's go through a quick JavaScript refresher on how to interact with a web page.
 ```javascript
 // Target element with the id #my-element-id
 document.getElementById('my-element-id')
@@ -141,7 +141,7 @@ Our script now runs on every single page we visit, and although I'm definitely l
 ### Creating the menu UI in HTML/CSS
 
 ##### **TODO:**
-- Create your menu or copy-paste the code below into `popup.html` and `style/popup.css`.
+- Create your menu or copy-paste the code below into `popup.html`.
 ```html
 <!-- popup.html -->
 
@@ -163,6 +163,8 @@ Our script now runs on every single page we visit, and although I'm definitely l
 *I have already included some CSS styling in `style/popup.css` for the template above.*
 
 ### Adding our menu to the manifest
+
+We need to let Chrome know that the menu for our extension is now in our `popup.html` file.
 
 ##### **TODO:**
 - Add this to your manifest.json file.
