@@ -83,44 +83,6 @@ The manifest is a simple JSON file that tells the browser about your web applica
 
 ```
 
-
-```javascript
-// manifest.json
-
-{
-  "manifest_version": 2,
-  "name": "My first Chrome Extension",
-  "description": "Chrome extension workshop for Le Wagon Tokyo",
-  "author": "Your name",
-  "version": "0.0.1",
-  "permissions": ["tabs"],
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [],
-      "css": []
-    }
-  ],
-  "background": {
-    "scripts": [],
-    "persistent": false
-  },
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_title": "My first Chrome Extension"
-  },
-  "icons": {
-    "16": "images/icon16.png",
-    "32": "images/icon32.png",
-    "48": "images/icon48.png",
-    "128": "images/icon128.png"
-  }
-}
-
-```
-
 ### Content scripts & Background / Event scripts
 
 **Content scripts** run in the context of a web page / tab, and allow you to get information from it, or even change its contents. On the other side, as its name suggests, a **background script** runs in the background of the Chrome browser, acting as a controller and used to maintain state for your extension.
