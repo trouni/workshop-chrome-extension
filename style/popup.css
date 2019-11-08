@@ -1,0 +1,54 @@
+/*================================*/
+/* CSS styling for the popup menu */
+/*================================*/
+
+body {
+  text-align: center;
+  font-family: 'Helvetica';
+  width: 300px;
+  margin: 0;
+  padding: 1em;
+  color: white;
+  background: radial-gradient(#2C4792, #162346);
+  border: solid 2px #2C4792;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+h1 {
+  font-size: 1.8em;
+  font-weight: 100;
+  margin: 0.8em;
+}
+
+button {
+  cursor: pointer;
+  width: 90%;
+  height: 3em;
+  font-size: 1.5em;
+  padding: 0 1em;
+  margin: 0.5em;
+  background: #2D8BDA;
+  opacity: 0.9;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+button:hover {
+  border: solid 1px white;
+  opacity: 1;
+}
+
+button:disabled {
+  opacity: 0.3;
+}
+
+button span {
+  width: 25%;
+  font-size: 2em;
+}

@@ -1,0 +1,15 @@
+/*=================================*/
+/* CSS styling for the font picker */
+/*=================================*/
+
+#font-picker-box {
+  position: fixed;
+  font-size: 2em;
+  bottom: 1em;
+  right: 1em;
+  background: rgba(255, 0, 0, 0.8);
+  border: solid 1px black;
+  padding: 1em;
+  z-index: 1000000000;
+  color: white;
+}
