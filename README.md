@@ -1,46 +1,58 @@
 # Workshop: My first Chrome Extension
 
+With ad blockers, integration to third party apps like Evernote or your favourite to-do app, or many humoristic extensions, Chrome extensions can be extremely powerful, but also very fun to use. The good news is that it's also super easy to build a Chrome extension. This workshop will take you step-by-step through the journey of creating and publishing your first Chrome extension, while teaching you the key concepts to understand.
+
+## What to expect from this workshop
+
+Cheese. 🧀
+
+But also, here are the key aspects that we'll be covering:
+1. What is the basic structure of a Chrome extension?
+2. How to create (content) scripts that interact with web pages?
+3. How to pass messages between content scripts and background scripts?
+4. How to integrate an extension with a third party app?
+
 ## Setup
 
+All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/).
 1. Clone the git repository for this workshop
-```
+```zsh
 git clone https://github.com/trouni/workshop-chrome-extension.git
 ```
-2. Alternatively, download the zip file from this page
+2. Alternatively, download the ZIP file from [this page](https://github.com/trouni/workshop-chrome-extension)
 3. Enter `chrome://extensions` in the Chrome search bar, and activate developer mode (top-right corner)
-4. Click `Load unpacked` and select the workshop-chrome-extension folder.
+4. Click '**Load unpacked**' and select the workshop-chrome-extension folder.
 
-## Let's build our first extension
-
-This example will showcase how to interact with a webpage using a very simple Chrome extension.
+## Let's get started!
 
 ### Interacting with the DOM using JavaScript
-```
-document.getElementById('my-element-id') // => Element with the id #my-element-id
 
-document.querySelector('.css-selector') // => First element matching the CSS selector
+Before we get started, here is a quick JavaScript refresher on how to target elements of a web page:
+```javascript
+// Target element with the id #my-element-id
+document.getElementById('my-element-id')
 
-document.querySelectorAll('.css-selector') // => Array of all elements matching the CSS selector
-```
+// Target the first element matching the CSS selector
+document.querySelector('.css-selector')
 
-Using this, let's replace all the images on a page with beautiful photos of cheese from [Unsplash](https://source.unsplash.com).
-
-```
-document.querySelectorAll('img').forEach( (img) => {
-  img.src = `https://source.unsplash.com/${img.width}x${img.height}/?cheese&${Math.random()}`;
-  img.srcset = img.src;
-})
+// Get an array of all the elements matching the CSS selector
+document.querySelectorAll('.css-selector')
 ```
 
-*Note: Not sure why you would want to do that, but you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.)*
+##### **TODO:**
+1. Open the Chrome console *(**⌘ Cmd + ⌥ Opt + J** on MacOS or **✲ Ctrl + ⇧ Shift + J** on Windows)*
+2. Replace all the images on the page with beautiful photos of cheese 🧀
 
-Stunning! Now, let's put this script in a Chrome extension, so that we can run it whenever we want from the toolbar.
+> *You can use [Unsplash Source](https://source.unsplash.com), which gives you random images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/featured/?cheese`*
+> *Also, not sure why you would want to do that, but you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.)*
+
+Once this is done, let's put this script in a Chrome extension!
 
 ### Basic structure of a Chrome extension
 
 The manifest is a simple JSON file that tells the browser about your web application, and it is the only file that every extension using WebExtension APIs must contain.
 
-```
+```javascript
 // manifest.json
 
 {
@@ -49,9 +61,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
   "description": "Chrome extension workshop for Le Wagon Tokyo",
   "author": "Your name",
   "version": "0.0.1",
-  "permissions": [
-    "tabs"
-  ],
+  "permissions": ["tabs"],
   "content_scripts": [
     // ...
   ],
@@ -63,6 +73,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
   },
   "icons": {
     "16": "images/icon16.png",
+    "32": "images/icon32.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   }
@@ -71,7 +82,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
 ```
 
 
-```
+```javascript
 // manifest.json
 
 {
@@ -80,6 +91,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
   "description": "Chrome extension workshop for Le Wagon Tokyo",
   "author": "Your name",
   "version": "0.0.1",
+  "permissions": ["tabs"],
   "content_scripts": [
     {
       "matches": [
@@ -88,9 +100,6 @@ The manifest is a simple JSON file that tells the browser about your web applica
       "js": [],
       "css": []
     }
-  ],
-  "permissions": [
-    "tabs"
   ],
   "background": {
     "scripts": [],
@@ -102,6 +111,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
   },
   "icons": {
     "16": "images/icon16.png",
+    "32": "images/icon32.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   }
@@ -111,11 +121,8 @@ The manifest is a simple JSON file that tells the browser about your web applica
 
 ### Content scripts & Background / Event scripts
 
-**Content scripts** run in the context of a web page / tab, and allow you to get information from it, or even change its contents.
-
-As the name suggests, **background scripts** are running in the background of the Chrome browser, acting as controllers and used to maintain state for your extensions.
-
-While content scripts have limited access to the Chrome Extension APIs, background scripts can make full use of them. **As a general rule, content scripts should be used to interact with web pages / tabs, while most of the logic should be located in the background scripts.**
+**Content scripts** run in the context of a web page / tab, and allow you to get information from it, or even change its contents. On the other side, as its name suggests, a **background script** runs in the background of the Chrome browser, acting as a controller and used to maintain state for your extension.
+While content scripts have limited access to the Chrome Extension APIs, background scripts can make full use of them. **As a general rule, content scripts should be used to interact with web pages / tabs, while the logic should ideally be located in the background script.**
 
 You can read this short blog post for a quick overview:
 [Chrome Extensions: Content Scripts vs. Background Scripts](https://medium.com/@vanessajimenez_85032/chrome-extensions-content-scripts-vs-background-scripts-7bbd01f9dbe6)
@@ -124,13 +131,21 @@ You can read this short blog post for a quick overview:
 
 Since it interacts with our page, our image replacing script should go into a content script.
 
-**TODO:** Type or copy the script from [above](#interacting-with-the-dom-using-javascript) in the `scripts/cheesify.js` file.
+##### **TODO:**
+- Add this snippet to the `scripts/cheesify.js` file.
+```javascript
+document.querySelectorAll('img').forEach( (img) => {
+  img.src = `https://source.unsplash.com/${img.width}x${img.height}/?cheese&${Math.random()}`;
+  img.srcset = img.src;
+})
+```
 
 #### Adding our content script to the manifest
 
-**TODO:** In your manifest, add the following to run our cheesify script on all the pages we visit.
+##### **TODO:**
+- In your manifest, add the following to run our cheesify script on all the pages we visit.
 
-```
+```javascript
 // manifest.json
 
 {
@@ -155,8 +170,9 @@ Our script now runs on every single page we visit, and although I'm definitely l
 
 ### Creating the menu UI in HTML/CSS
 
-**TODO:** Create your menu or copy-paste the code below into `popup.html` and `style/popup.css`.
-```
+##### **TODO:**
+- Create your menu or copy-paste the code below into `popup.html` and `style/popup.css`.
+```html
 <!-- popup.html -->
 
 <!DOCTYPE html>
@@ -169,49 +185,18 @@ Our script now runs on every single page we visit, and although I'm definitely l
 </head>
 <body>
   <h1>My first Chrome extension</h1>
-  <button id="cheesify">Cheesify Page</button>
+  <button id="cheesify"><span>🧀</span><p>Cheesify Page</p></button>
   <script src="scripts/popup.js"></script>
 </body>
 </html>
 ```
-
-```
-/* style/popup.css */
-
-body {
-  text-align: center;
-  font-family: 'Helvetica';
-  width: 600px;
-  margin: 0;
-  padding: 1em;
-  color: white;
-  background: radial-gradient(#2C4792, #162346);
-  border: solid 2px #2C4792;
-}
-
-h1 {
-  margin: 0.8em;
-}
-
-button {
-  font-size: 1.2em;
-  padding: 1em;
-  margin: 1em;
-  background: #339AF0;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px white;
-}
-
-button:disabled {
-  background: lightgrey;
-}
-```
+*I have already included some CSS styling in `style/popup.css` for the template above.*
 
 ### Adding our menu to the manifest
 
-**TODO:** Add this to your manifest.json file.
-```
+##### **TODO:**
+- Add this to your manifest.json file.
+```javascript
 // manifest.json
 
 {
@@ -228,18 +213,19 @@ button:disabled {
 
 ### Passing messages to tabs / content scripts
 
-When we click the button of our popup.html page, we should send a message to the cheesify.js content script and trigger our image replacement script.
+When we click the button of our `popup.html` page, we should send a message to the `cheesify.js` content script and trigger our image replacement script.
 
 Here are some useful methods to pass messages to content scripts:
-```
+```javascript
 chrome.tabs.query( queryInfo, (responseCallback) ) // Search within the open tabs in Chrome
 
 chrome.tabs.sendMessage( tabId, message, (options), (responseCallback) )
 ```
 *Learn more in the [chrome.tabs API](https://developer.chrome.com/extensions/tabs).*
 
-**TODO:** Let's apply this to our extension and trigger the cheesify script when we click on our button.
-```
+##### **TODO:**
+- Let's apply this to our extension and trigger the cheesify script when we click on our button.
+```javascript
 // scripts/popup.js
 
 document.getElementById('cheesify').addEventListener('click', event => cheesify());
@@ -253,9 +239,9 @@ function cheesify() {
 
 ### Listening for messages in tabs / content scripts
 
-Now, all that's keeping us from turning our web page into dairy heaven is learning how to intercept the message we've just sent, then trigger an action based on that. We will be using the chrome.runtime API and more specifically, the `onMessage.addListener()` method:
+Now, all that's keeping us from turning our web page into dairy heaven is learning how to intercept the message we've just sent, then trigger an action based on that. We will be using the chrome.runtime API and more specifically, the `onMessage.addListener` method:
 
-```
+```javascript
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     // actions based on the request (which corresponds to the object we sent in our message)
@@ -264,8 +250,9 @@ chrome.runtime.onMessage.addListener(
 ```
 *Learn more in the [chrome.runtime API](https://developer.chrome.com/apps/runtime).*
 
-**TODO:** Complete/replace your code in cheesify.js with the one below.
-```
+##### **TODO:**
+- Complete/replace your code in cheesify.js with the one below.
+```javascript
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (request.action === 'cheesify') cheesify();
@@ -282,31 +269,114 @@ function cheesify() {
 
 Awesome! You should now be able to click on the extension's icon, then click on the 'Cheesify Page' button to run our cheesify script. I have also included a basic 'font picker' script for you to play around if you'd like to experiment more with passing messages between the popup and content script.
 
-## Let's make our extension interact with an API
+## 2. Let's make our extension interact with an API
 
+The goal with this feature is to simulate adding a page to a 'Read Later' list. To achieve this, the popup script will capture relevant information (page title & url) from the active tab, then send it to the background script. Finally, we will make a POST request from the background script.
 
+### Setting up a mock API
+
+We will use [PostBin](https://postb.in/) as our mock API, which will allow us to visualize the web pages that we added via our POST request.
+
+##### **TODO:**
+1. Go to [PostBin](https://postb.in/) and click '**Create Bin**'
+2. Copy the url from that page, which should look like `https://postb.in/b/#############-#############`
+3. Store this url in a variable in the `background.js` file
 
 ### Passing messages to the background scripts
 
-```
+Similarly to sending messages to our content scripts using `tabs.sendMessage`, we can send messages to background scripts using `runtime.sendMessage`.
+
+```javascript
 chrome.runtime.sendMessage( (extensionId), message, (options), (responseCallback) )
+```
+
+##### **TODO:**
+1. Add a button to `popup.html` that will add the current web page to our 'Read Later' list
+2. Add code in `scripts/popup.js` to capture the current page's information using `chrome.tabs.query({active: true, currentWindow: true}, callback = (tabs) => {})`
+3. Send the captured information to the background script using the `chrome.runtime.sendMessage` method.
+
+```html
+<!-- popup.html -->
+
+<button id="post-to-api"><span>📖</span>Add to Read List</button>
+```
+
+```javascript
+// scripts/popup.js
+
+const btnPostToAPI = document.getElementById('post-to-api')
+btnPostToAPI.addEventListener('click', event => addItemToList());
+
+function addItemToList() {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    btnPostToAPI.disabled = true;
+    chrome.runtime.sendMessage({ action: 'postItem', title: tabs[0].title, url: tabs[0].url }, (data) => {
+      btnPostToAPI.disabled = false;
+    });
+  });
+}
 ```
 
 ### Listening for messages in the background scripts
 
-Listening is the same in the background or in content scripts, using `chrome.runtime.onMessage.addListener( ... )`.
+Listening is the same in the background or in content scripts, using `chrome.runtime.onMessage.addListener`.
 
+##### **TODO:**
+1. Add the background.js script to the manifest
+2. Create a function to make a POST request to PostBin using `fetch`
+3. Add a message listener to receive the active page information sent by popup.js, then send it to PostBin
 
+```javascript
+// manifest.json
+
+{
+  // ...
+
+  "background": {
+    "scripts": ["scripts/background.js"],
+    "persistent": false
+  },
+
+  // ...
+}
+```
+
+```javascript
+// scripts/background.js
+
+const postBinUrl = 'https://postb.in/b/#############-#############' // Replace this with your PostBin url
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.action === 'postItem') postItem(request.title, request.url).then(response => sendResponse(response));
+    return true // Necessary when sendResponse() is sent asynchronously so that the script that sent the message waits for the response.
+  }
+);
+
+const postItem = (title, url) => {
+  return fetch(postBinUrl, {
+    method: 'POST',
+    headers: { "Content-type": "application/json; charset=UTF-8" },
+    body: JSON.stringify({ title: title, url: url })
+  })
+}
+```
 
 ## Publishing our extension to the store
 
-- Sign up or sign in to your Google Account
-- Developer account
-- Share your extension
+1. Create your app’s zip file
+2. [Create a developer account](https://chrome.google.com/webstore/developer/dashboard)
+3. Upload your app
+4. Pay the developer's signup fee
+*Full official tutorial available [here](https://developer.chrome.com/webstore/publish)*
 
+You can publish unlisted extension and share the direct link if you don't want to make your extension public.
 
-**TODO:** I would absolutely love to see what extensions you've built, so don't hesitate to contact me (details below) and let me know what you came up with!
+##### **TODO:**
+- Show me what you've built! Don't hesitate to contact me and let me know what extensions you developed!
 
-======
-©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop by Trouni Tiet for Le Wagon Tokyo
-[LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
+-----
+©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by Trouni Tiet
+Contact me: [LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
+
+Coding Bootcamp - [Le Wagon](https://www.lewagon.com) | Change your life, learn to code.
