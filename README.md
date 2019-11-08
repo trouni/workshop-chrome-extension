@@ -15,13 +15,15 @@ But also, here are the key aspects that we'll be covering:
 ## Setup
 
 All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/).
+
+##### **TODO:**
 1. Clone the git repository for this workshop
 ```zsh
 git clone https://github.com/trouni/workshop-chrome-extension.git
 ```
-2. Alternatively, download the ZIP file from [this page](https://github.com/trouni/workshop-chrome-extension)
+2. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive.
 3. Enter `chrome://extensions` in the Chrome search bar, and activate developer mode (top-right corner)
-4. Click '**Load unpacked**' and select the workshop-chrome-extension folder.
+4. Click '**Load unpacked**' and select your workshop-chrome-extension folder (where you unzipped the files).
 
 ## Let's get started!
 
@@ -364,10 +366,12 @@ const postItem = (title, url) => {
 
 ## Publishing our extension to the store
 
+##### **TODO:**
 1. Create your app’s zip file
 2. [Create a developer account](https://chrome.google.com/webstore/developer/dashboard)
 3. Upload your app
 4. Pay the developer's signup fee
+
 *Full official tutorial available [here](https://developer.chrome.com/webstore/publish)*
 
 You can publish unlisted extension and share the direct link if you don't want to make your extension public.
@@ -376,7 +380,6 @@ You can publish unlisted extension and share the direct link if you don't want t
 - Show me what you've built! Don't hesitate to contact me and let me know what extensions you developed!
 
 -----
-©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by Trouni Tiet
-Contact me: [LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
+©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet** | [LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
 
-Coding Bootcamp - [Le Wagon](https://www.lewagon.com) | Change your life, learn to code.
+ Created for [Le Wagon](https://www.lewagon.com) | Coding Bootcamp | **Change your life, learn to code.**
