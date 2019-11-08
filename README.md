@@ -2,7 +2,9 @@
 
 With ad blockers, integration to third party apps like Evernote or your favourite to-do app, or many humoristic extensions, Chrome extensions can be extremely powerful, but also very fun to use. The good news is that it's also super easy to build a Chrome extension. This workshop will take you step-by-step through the journey of creating and publishing your first Chrome extension, while teaching you the key concepts to understand.
 
-## What to expect from this workshop
+## Before we start
+
+### What to expect from this workshop
 
 Cheese. 🧀
 
@@ -12,7 +14,7 @@ But also, here are the key aspects that we'll be covering:
 3. How to pass messages between content scripts and background scripts?
 4. How to integrate an extension with a third party app?
 
-## Setup
+### Setup
 
 All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/).
 
@@ -21,9 +23,7 @@ All you need for this workshop is [Google Chrome](https://www.google.com/chrome/
 ```zsh
 git clone https://github.com/trouni/workshop-chrome-extension.git
 ```
-2. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive.
-3. Enter `chrome://extensions` in the Chrome search bar, and activate developer mode (top-right corner)
-4. Click '**Load unpacked**' and select your workshop-chrome-extension folder (where you unzipped the files).
+2. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
 
 ## Let's get started!
 
@@ -82,6 +82,12 @@ The manifest is a simple JSON file that tells the browser about your web applica
 }
 
 ```
+
+### Loading our extension into Chrome
+
+##### **TODO:**
+1. Enter `chrome://extensions` in the Chrome search bar, and activate developer mode (top-right corner)
+2. Click '**Load unpacked**' and select your workshop-chrome-extension folder.
 
 ### Content scripts & Background / Event scripts
 
