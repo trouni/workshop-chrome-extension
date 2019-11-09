@@ -45,7 +45,7 @@ document.querySelectorAll('.css-selector')
 1. Open the Chrome console *(**⌘ Cmd + ⌥ Opt + J** on MacOS or **✲ Ctrl + ⇧ Shift + J** on Windows)*
 2. Replace all the images on the page with beautiful photos of cheese 🧀
 
-> *You can use [Unsplash Source](https://source.unsplash.com), which gives you random images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/featured/?cheese`*
+> *You can use [Unsplash Source](https://source.unsplash.com), which gives you random images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/featured/?cheese`*\
 > *Also, I'm not sure why you would want to do that, but you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.)*
 
 Once this is done, let's put this script in a Chrome extension!
@@ -352,7 +352,7 @@ You can publish unlisted extension and share the direct link if you don't want t
 - Show me what you've built! Don't hesitate to contact me and let me know what extensions you've created!
 
 -----
-©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet**
+©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet**\
 [LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
 
  Created for [Le Wagon](https://www.lewagon.com) | Coding Bootcamp | **Change your life, learn to code.**
