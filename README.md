@@ -9,11 +9,11 @@ With ad blockers, integration to third party apps like Evernote or your favourit
 Cheese. 🧀
 
 But also, here are key aspects that we'll be covering:
-1. What is the basic structure of a Chrome extension?
-2. How to create (content) scripts that interact with web pages?
-3. How to pass messages between content scripts and background scripts?
-4. How to integrate an extension with a third party app?
-5. How to publish an extension on the Chrome store?
+1. What is the basic structure of a Chrome extension
+2. How to create (content) scripts that interact with web pages
+3. How to pass messages between content scripts and background scripts
+4. How to integrate an extension with a third party app
+5. How to publish an extension on the Chrome store
 
 ### Setup
 
@@ -227,13 +227,15 @@ chrome.runtime.onMessage.addListener(
 ##### **TODO:**
 - Complete/replace your code in cheesify.js with the one below.
 ```javascript
+// cheesify.js
+
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.action === 'cheesify') cheesify();
+    if (request.action === 'sendCheesify') cheesify();
   }
 );
 
-function cheesify() {
+function sendCheesify() {
   document.querySelectorAll('img').forEach( (img) => {
     img.src = `https://source.unsplash.com/${img.width}x${img.height}/?cheese&${Math.random()}`;
     img.srcset = img.src;
@@ -255,8 +257,8 @@ We will use [PostBin](https://postb.in/) as our mock API, which will allow us to
 
 ##### **TODO:**
 1. Go to [PostBin](https://postb.in/) and click '**Create Bin**'
-2. Copy the url from that page, which should look like `https://postb.in/b/#############-#############`
-3. Store this url in a variable in the `background.js` file
+2. Copy the url that appears after **POST** in the examples. The url should look like `https://postb.in/1234567890123-1234567890123`
+3. Store this url in the `postBinUrl` variable in the `background.js` file
 
 ### Passing messages to the background scripts
 
