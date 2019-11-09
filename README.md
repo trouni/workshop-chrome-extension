@@ -8,11 +8,12 @@ With ad blockers, integration to third party apps like Evernote or your favourit
 
 Cheese. 🧀
 
-But also, here are the key aspects that we'll be covering:
+But also, here are key aspects that we'll be covering:
 1. What is the basic structure of a Chrome extension?
 2. How to create (content) scripts that interact with web pages?
 3. How to pass messages between content scripts and background scripts?
 4. How to integrate an extension with a third party app?
+5. How to publish an extension on the Chrome store?
 
 ### Setup
 
