@@ -91,11 +91,10 @@ The manifest is a simple JSON file that tells the browser about your web applica
 
 ### Content scripts & Background / Event scripts
 
+![Structure of a Chrome extension](/images/chrome-extension-structure.png)
+
 **Content scripts** run in the context of a web page / tab, and allow you to get information from it, or even change its contents. On the other side, as its name suggests, a **background script** runs in the background of the Chrome browser, acting as a controller and used to maintain state for your extension.
 While content scripts have limited access to the Chrome Extension APIs, background scripts can make full use of them. **As a general rule, content scripts should be used to interact with web pages / tabs, while the logic should ideally be located in the background script.**
-
-You can read this short blog post for a quick overview:
-[Chrome Extensions: Content Scripts vs. Background Scripts](https://medium.com/@vanessajimenez_85032/chrome-extensions-content-scripts-vs-background-scripts-7bbd01f9dbe6)
 
 #### Creating our first content script
 
@@ -245,7 +244,9 @@ Awesome! You should now be able to click on the extension's icon, then click on 
 
 ## 2. Let's make our extension interact with an API
 
-The goal with this feature is to simulate adding a page to a 'Read Later' list. To achieve this, the popup script will capture relevant information (page title & url) from the active tab, then send it to the background script. Finally, we will make a POST request from the background script.
+It's now time for us to experiment with background scripts!
+
+The idea for this new feature is to simulate adding a page to a 'Read Later' list. To achieve this, the popup script will capture relevant information (page title & url) from the active tab, then send it to the background script. Finally, we will make a POST request from the background script.
 
 ### Setting up a mock API
 
