@@ -2,7 +2,7 @@
 // Code for your background script goes in this file //
 // ================================================= //
 
-const postBinUrl = '' // <= Paste your PostBin url here
+const postBinUrl = '' // 👈 Paste your PostBin url here
 
 // TODO: Create function to make a POST request to PostBin using fetch()
 function postItem(title, url) {

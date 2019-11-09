@@ -46,7 +46,7 @@ document.querySelectorAll('.css-selector')
 2. Replace all the images on the page with beautiful photos of cheese 🧀
 
 > *You can use [Unsplash Source](https://source.unsplash.com), which gives you random images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/featured/?cheese`*
-> *Also, not sure why you would want to do that, but you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.)*
+> *Also, I'm not sure why you would want to do that, but you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.)*
 
 Once this is done, let's put this script in a Chrome extension!
 
@@ -189,8 +189,10 @@ When we click the button of our `popup.html` page, we should send a message to t
 
 Here are some useful methods to pass messages to content scripts:
 ```javascript
-chrome.tabs.query( queryInfo, (responseCallback) ) // Search within the open tabs in Chrome
+// Find the tab(s) you want to send a message to by querying the open tabs in Chrome
+chrome.tabs.query( queryInfo, (responseCallback) )
 
+// Send a message to a tab when you know its ID
 chrome.tabs.sendMessage( tabId, message, (options), (responseCallback) )
 ```
 *Learn more in the [chrome.tabs API](https://developer.chrome.com/extensions/tabs).*
@@ -316,7 +318,7 @@ Listening is the same in the background or in content scripts, using `chrome.run
 ```javascript
 // scripts/background.js
 
-const postBinUrl = 'https://postb.in/b/#############-#############' // Replace this with your PostBin url
+const postBinUrl = 'https://postb.in/b/#############-#############' // 👈 Paste your PostBin url here
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -347,9 +349,10 @@ const postItem = (title, url) => {
 You can publish unlisted extension and share the direct link if you don't want to make your extension public.
 
 ##### **TODO:**
-- Show me what you've built! Don't hesitate to contact me and let me know what extensions you developed!
+- Show me what you've built! Don't hesitate to contact me and let me know what extensions you've created!
 
 -----
-©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet** | [LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
+©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet**
+[LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
 
  Created for [Le Wagon](https://www.lewagon.com) | Coding Bootcamp | **Change your life, learn to code.**
