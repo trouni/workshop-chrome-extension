@@ -340,7 +340,7 @@ Listening is the same in the background or in content scripts, using `chrome.run
 ```javascript
 // scripts/background.js
 
-const postBinUrl = 'https://postb.in/b/#############-#############' // 👈 Paste your PostBin url here
+const postBinUrl = 'https://postb.in/#############-#############' // 👈 Paste your PostBin url here
 
 // Make a POST request to PostBin
 const postItem = (title, url) => {
