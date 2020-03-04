@@ -212,13 +212,16 @@ chrome.tabs.sendMessage( tabId, message, (options), (responseCallback) )
 ```javascript
 // scripts/popup.js
 
-document.getElementById('cheesify').addEventListener('click', event => cheesify());
-
-function cheesify() {
+// Send a message to the active tab to 'cheesify' it
+function sendCheesifyMsg() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) { // Finds tabs that are active in the current window
     chrome.tabs.sendMessage(tabs[0].id, { action: 'cheesify' }); // Sends a message (object) to the first tab (tabs[0])
   });
 }
+
+// Trigger the function above when clicking the 'Cheesify' button
+document.getElementById('cheesify').addEventListener('click', event => sendCheesifyMsg());
+
 ```
 
 ### Listening for messages in tabs / content scripts
@@ -239,13 +242,15 @@ chrome.runtime.onMessage.addListener(
 ```javascript
 // cheesify.js
 
+// Listen for messages on the content page
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.action === 'sendCheesify') cheesify();
+    if (request.action === 'cheesify') cheesify();
   }
 );
 
-function sendCheesify() {
+// Our image replacement script
+function cheesify() {
   document.querySelectorAll('img').forEach( (img) => {
     img.src = `https://source.unsplash.com/${img.width}x${img.height}/?cheese&${Math.random()}`;
     img.srcset = img.src;
@@ -292,9 +297,7 @@ chrome.runtime.sendMessage( (extensionId), message, (options), (responseCallback
 ```javascript
 // scripts/popup.js
 
-const btnPostToAPI = document.getElementById('post-to-api')
-btnPostToAPI.addEventListener('click', event => addItemToList());
-
+// Send a message containing the current page's title & url to our background script
 function addItemToList() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     btnPostToAPI.disabled = true;
@@ -303,6 +306,11 @@ function addItemToList() {
     });
   });
 }
+
+// Trigger the function above when clicking the 'Add to Read List' button
+const btnPostToAPI = document.getElementById('post-to-api')
+btnPostToAPI.addEventListener('click', event => addItemToList());
+
 ```
 
 ### Listening for messages in the background scripts
@@ -334,13 +342,7 @@ Listening is the same in the background or in content scripts, using `chrome.run
 
 const postBinUrl = 'https://postb.in/b/#############-#############' // 👈 Paste your PostBin url here
 
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if (request.action === 'postItem') postItem(request.title, request.url).then(response => sendResponse(response));
-    return true // Necessary when sendResponse() is sent asynchronously so that the script that sent the message waits for the response.
-  }
-);
-
+// Make a POST request to PostBin
 const postItem = (title, url) => {
   return fetch(postBinUrl, {
     method: 'POST',
@@ -348,6 +350,14 @@ const postItem = (title, url) => {
     body: JSON.stringify({ title: title, url: url })
   })
 }
+
+// Listen for the active page's information and send it to PostBin
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.action === 'postItem') postItem(request.title, request.url).then(response => sendResponse(response));
+    return true // Necessary when sendResponse() is sent asynchronously so that the script that sent the message waits for the response.
+  }
+);
 ```
 
 ## Publishing our extension to the store
