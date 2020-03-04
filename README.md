@@ -1,8 +1,28 @@
-# Workshop: My first Chrome Extension
+# JavaScript Workshop: Chrome Extension
+#### Learn how to build your first Chrome Extension
+
+### Setup: https://info.lewagon.com/tokyo-chrome-ext
+
+![https://info.lewagon.com/tokyo-chrome-ext](images/qrcode.png)
+
+By [Trouni Tiet](https://linkedin.com/in/trouni) for [Le Wagon Tokyo](https://www.lewagon.com/tokyo)
+
+---
+
+## Setup
+
+All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/).
+
+##### **TODO:**
+1. Clone the git repository for this workshop
+```zsh
+git clone https://github.com/trouni/workshop-chrome-extension.git
+```
+2. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
+
+---
 
 With ad blockers, integration to third party apps like Evernote or your favourite to-do app, or many humoristic extensions, Chrome extensions can be extremely powerful, but also very fun to use. The good news is that it's also super easy to build a Chrome extension. This workshop will take you step-by-step through the journey of creating and publishing your first Chrome extension, while teaching you the key concepts to understand.
-
-## Before we start
 
 ### What to expect from this workshop
 
@@ -15,16 +35,6 @@ But also, here are key aspects that we'll be covering:
 4. How to integrate an extension with a third party app
 5. How to publish an extension on the Chrome store
 
-### Setup
-
-All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/).
-
-##### **TODO:**
-1. Clone the git repository for this workshop
-```zsh
-git clone https://github.com/trouni/workshop-chrome-extension.git
-```
-2. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
 
 ## Let's get started!
 
