@@ -1,14 +1,40 @@
 {
-  //   "manifest_version": 2,
-  //   "name": "My first Chrome Extension",
-  //   "description": "Chrome extension workshop for Le Wagon Tokyo",
-  //   "author": "Your name",
-  //   "version": "1",
-  //   "permissions": ["tabs"],
-  //   "icons": {
-  //     "16": "images/icon16.png",
-  //     "32": "images/icon32.png",
-  //     "48": "images/icon48.png",
-  //     "128": "images/icon128.png"
-  //   }
+  "manifest_version": 2,
+  "name": "My first Chrome Extension",
+  "description": "Chrome extension workshop for Le Wagon Tokyo",
+  "author": "Trouni Tiet",
+  "version": "1",
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/cheesify.js",
+        "scripts/font-picker.js"
+      ],
+      "css": [
+        "style/font-picker.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "My first Chrome Extension"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
 }
