@@ -15,10 +15,11 @@ All you need for this workshop is [Google Chrome](https://www.google.com/chrome/
 
 ##### **TODO:**
 1. Clone the git repository for this workshop
+
 ```zsh
 git clone https://github.com/trouni/workshop-chrome-extension.git
 ```
-2. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
+1. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
 
 ---
 
@@ -117,6 +118,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
 
 ![Structure of a Chrome extension](https://raw.githubusercontent.com/trouni/workshop-chrome-extension/master/images/chrome-extension-structure.png)
 
+
 **Content scripts** run in the context of a web page / tab, and allow you to get information from it, or even change its contents. On the other side, as its name suggests, a **background script** runs in the background of the Chrome browser, acting as a controller and used to maintain state for your extension.
 While content scripts have limited access to the Chrome Extension APIs, background scripts can make full use of them. **As a general rule, content scripts should be used to interact with web pages / tabs, while the logic should ideally be located in the background script.**
 
@@ -127,12 +129,14 @@ Since it interacts with our page, our image replacing script should go into a co
 
 ##### **TODO:**
 - Add this snippet to the `scripts/cheesify.js` file.
+
 ```javascript
 document.querySelectorAll('img').forEach( (img) => {
   img.src = `https://source.unsplash.com/${img.width}x${img.height}/?cheese&${Math.random()}`;
   img.srcset = img.src;
 })
 ```
+
 
 #### Adding our content script to the manifest
 
@@ -169,6 +173,7 @@ Our script now runs on every single page we visit, and although I'm definitely l
 
 ##### **TODO:**
 - Create your menu or copy-paste the code below into `popup.html`.
+
 ```html
 <!-- popup.html -->
 
@@ -196,6 +201,7 @@ We need to let Chrome know that the menu for our extension is now in our `popup.
 
 ##### **TODO:**
 - Add this to your manifest.json file.
+
 ```javascript
 // manifest.json
 
@@ -218,6 +224,7 @@ When we click the button of our `popup.html` page, we should send a message to t
 
 
 Here are some useful methods to pass messages to content scripts:
+
 ```javascript
 // Find the tab(s) you want to send a message to by querying the open tabs in Chrome
 chrome.tabs.query( queryInfo, (responseCallback) )
@@ -230,6 +237,7 @@ chrome.tabs.sendMessage( tabId, message, (options), (responseCallback) )
 
 ##### **TODO:**
 - Let's apply this to our extension and trigger the cheesify script when we click on our button.
+
 ```javascript
 // scripts/popup.js
 
@@ -262,6 +270,7 @@ chrome.runtime.onMessage.addListener(
 
 ##### **TODO:**
 - Complete/replace your code in cheesify.js with the one below.
+
 ```javascript
 // cheesify.js
 
@@ -315,6 +324,7 @@ chrome.runtime.sendMessage( (extensionId), message, (options), (responseCallback
 
 ##### **TODO:**
 1. Add a button to `popup.html` that will add the current web page to our 'Read Later' list
+   
 ```html
 <!-- popup.html -->
 
@@ -322,8 +332,8 @@ chrome.runtime.sendMessage( (extensionId), message, (options), (responseCallback
 ```
 
 
-2. Add code in `scripts/popup.js` to capture the current page's information using `chrome.tabs.query({active: true, currentWindow: true}, callback = (tabs) => {})`
-3. Send the captured information to the background script using the `chrome.runtime.sendMessage` method.
+1. Add code in `scripts/popup.js` to capture the current page's information using `chrome.tabs.query({active: true, currentWindow: true}, callback = (tabs) => {})`
+2. Send the captured information to the background script using the `chrome.runtime.sendMessage` method.
 
 ```javascript
 // scripts/popup.js
@@ -352,6 +362,7 @@ Listening is the same in the background or in content scripts, using `chrome.run
 
 ##### **TODO:**
 1. Add the background.js script to the manifest
+
 ```javascript
 // manifest.json
 
@@ -368,8 +379,8 @@ Listening is the same in the background or in content scripts, using `chrome.run
 ```
 
 
-2. Create a function to make a POST request to PostBin using `fetch`
-3. Add a message listener to receive the active page information sent by popup.js, then send it to PostBin
+1. Create a function to make a POST request to PostBin using `fetch`
+2. Add a message listener to receive the active page information sent by popup.js, then send it to PostBin
 
 ```javascript
 // scripts/background.js
