@@ -1,9 +1,9 @@
 # JavaScript Workshop: Chrome Extension
-#### Learn how to build your first Chrome Extension
+#### Build your first Chrome Extension
 
 ### Setup: https://info.lewagon.com/tokyo-chrome-ext
 
-![https://info.lewagon.com/tokyo-chrome-ext](images/qrcode.png)
+![https://info.lewagon.com/tokyo-chrome-ext](https://raw.githubusercontent.com/trouni/workshop-chrome-extension/master/images/qrcode.png)
 
 By [Trouni Tiet](https://linkedin.com/in/trouni) for [Le Wagon Tokyo](https://www.lewagon.com/tokyo)
 
@@ -102,7 +102,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
 
 ### Content scripts & Background / Event scripts
 
-![Structure of a Chrome extension](/images/chrome-extension-structure.png)
+![Structure of a Chrome extension](https://raw.githubusercontent.com/trouni/workshop-chrome-extension/master/images/chrome-extension-structure.png)
 
 **Content scripts** run in the context of a web page / tab, and allow you to get information from it, or even change its contents. On the other side, as its name suggests, a **background script** runs in the background of the Chrome browser, acting as a controller and used to maintain state for your extension.
 While content scripts have limited access to the Chrome Extension APIs, background scripts can make full use of them. **As a general rule, content scripts should be used to interact with web pages / tabs, while the logic should ideally be located in the background script.**
