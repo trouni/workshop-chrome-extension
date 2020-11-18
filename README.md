@@ -86,7 +86,7 @@ element.style.opacity = 0.5
 element.classList.add('hidden')
 
 // Change an image
-img.src = 'https://raw.githubusercontent.com/trouni/workshop-chrome-extension/master/images/porcupine.jpg'
+img.src = 'https://raw.githubusercontent.com/trouni/workshop-chrome-extension/master/images/hedgehog.jpg'
 ```
 
 
