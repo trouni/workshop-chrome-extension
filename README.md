@@ -47,8 +47,15 @@ But also, here are key aspects that we'll be covering:
 Before we dive into extensions, let's go through a quick JavaScript recap on how to interact with a web page.
 
 
+### Chrome Developer Tools
 
-### Selecting elements in the DOM using JavaScript
+##### **TODO:**
+1. Open the Chrome console
+
+`**⌘ Cmd + ⌥ Opt + J**` on MacOS or `**✲ Ctrl + ⇧ Shift + J**` on Windows
+
+
+### Selecting elements in the DOM
 
 
 ```javascript
@@ -63,12 +70,27 @@ document.querySelectorAll('.css-selector')
 ```
 
 
+### Editing an element's attributes
 
-### Listen for events and trigger actions
-
+After selecting an HTML element:
 
 ```javascript
-// After selecting an HTML element
+// Change opacity of the element
+element.style.opacity = 0.5
+
+// Add a CSS class to the element
+element.classList.add('hidden')
+
+// Change an image
+img.src = 'https://raw.githubusercontent.com/trouni/workshop-chrome-extension/master/images/porcupine.jpg'
+```
+
+
+### User interaction
+
+You can ask the browser to listen for events and trigger actions using `addEventListener()`:
+
+```javascript
 element.addEventListener('click', (event) => {
   // Some action
   alert('The event has been triggered')
@@ -78,9 +100,7 @@ element.addEventListener('click', (event) => {
 Check out the [Event reference documentation](https://developer.mozilla.org/en-US/docs/Web/Events) for a complete list of available events.
 
 
-##### **TODO:**
-1. Open the Chrome console *(**⌘ Cmd + ⌥ Opt + J** on MacOS or **✲ Ctrl + ⇧ Shift + J** on Windows)*
-2. Replace all the images on the page with beautiful photos of cheese 🧀
+
 
 
 > *You can use [Unsplash Source](https://source.unsplash.com), which gives you random images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/featured/?cheese`*\
