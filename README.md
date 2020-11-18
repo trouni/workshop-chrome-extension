@@ -57,11 +57,7 @@ Before we dive into extensions, let's go through a quick JavaScript recap on how
 
 ### Selecting elements in the DOM
 
-
 ```javascript
-// Target element with the id #my-element-id
-document.getElementById('my-element-id')
-
 // Target the first element matching the CSS selector
 document.querySelector('.css-selector')
 
@@ -99,17 +95,26 @@ element.addEventListener('click', (event) => {
 
 Check out the [Event reference documentation](https://developer.mozilla.org/en-US/docs/Web/Events) for a complete list of available events.
 
+---
+
+## Building a "cheesifier" Chrome extension
+
+We'll create an extension that replaces all images on a web page with photos of cheese 🧀.
 
 
+### Unsplash Source
+
+Let's use [Unsplash Source](https://source.unsplash.com), to find random cheese images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/collection/8884129/`.
 
 
-> *You can use [Unsplash Source](https://source.unsplash.com), which gives you random images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/featured/?cheese`*\
-> *Also, you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.), but not sure why you would do that.*
+> *You can also use `https://source.unsplash.com/featured/?cheese` and replace `cheese` with anything you want (e.g. `wine`, `puppy`, etc.)*
 
+##### **TODO:**
+
+Use what we've learned so far to replace all the images on [this website](https://japantoday.com/) with photos of cheese.
 
 Once this is done, let's put this script in a Chrome extension!
 
----
 
 ### Basic structure of a Chrome extension
 
@@ -170,7 +175,7 @@ Since it interacts with our page, our image replacing script should go into a co
 
 ```javascript
 document.querySelectorAll('img').forEach( (img) => {
-  img.src = `https://source.unsplash.com/${img.width}x${img.height}/?cheese&${Math.random()}`;
+  img.src = `https://source.unsplash.com/collection/8884129/${img.width}x${img.height}?${Math.random()}`;
   img.srcset = img.src;
 })
 ```
@@ -287,7 +292,7 @@ function sendCheesifyMsg() {
 }
 
 // Trigger the function above when clicking the 'Cheesify' button
-document.getElementById('cheesify').addEventListener('click', event => sendCheesifyMsg());
+document.querySelector('#cheesify').addEventListener('click', event => sendCheesifyMsg());
 
 ```
 
