@@ -121,7 +121,7 @@ Let's use [Unsplash Source](https://source.unsplash.com), to find random cheese 
 
 Use what we've learned so far to replace all the images on [this website](https://japantoday.com/) with photos of cheese.
 
-Hint:
+**Hint:**
 
 1. Select all `img` elements
 2. Iterate over each of them using `forEach`
@@ -180,7 +180,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
 While content scripts have limited access to the Chrome Extension APIs, background scripts can make full use of them. **As a general rule, content scripts should be used to interact with web pages / tabs, while the logic should ideally be located in the background script.**
 
 
-#### Creating our first content script
+### Creating our first content script
 
 Since it interacts with our page, our image replacing script should go into a content script.
 
@@ -195,10 +195,10 @@ document.querySelectorAll('img').forEach( (img) => {
 ```
 
 
-#### Adding our content script to the manifest
+### Adding our script to the manifest
 
 ##### **TODO:**
-- In your manifest, add the following to run our cheesify script on all the pages we visit.
+In your manifest, add the following to run our cheesify script on all the pages we visit.
 
 ```javascript
 // manifest.json
@@ -221,7 +221,7 @@ document.querySelectorAll('img').forEach( (img) => {
 
 ---
 
-## Let's add a menu
+## Add a menu to our extension
 
 Our script now runs on every single page we visit, and although I'm definitely loving all that cheesy goodness, I can think of a few situations where replacing all images on the internet with photos of coagulated milk may not be entirely relevant. So let's add a menu to our extension, in order to trigger the cheesification of our page only when we *actually* need it.
 
@@ -229,7 +229,7 @@ Our script now runs on every single page we visit, and although I'm definitely l
 ### Creating the menu UI in HTML/CSS
 
 ##### **TODO:**
-- Create your menu or copy-paste the code below into `popup.html`.
+Create your menu or copy-paste the code below into `popup.html`.
 
 ```html
 <!-- popup.html -->
@@ -257,7 +257,7 @@ Our script now runs on every single page we visit, and although I'm definitely l
 We need to let Chrome know that the menu for our extension is now in our `popup.html` file.
 
 ##### **TODO:**
-- Add this to your manifest.json file.
+Add this to your manifest.json file.
 
 ```javascript
 // manifest.json
@@ -293,7 +293,7 @@ chrome.tabs.sendMessage( tabId, message, (options), (responseCallback) )
 
 
 ##### **TODO:**
-- Let's apply this to our extension and trigger the cheesify script when we click on our button.
+Let's apply this to our extension and trigger the cheesify script when we click on our button.
 
 ```javascript
 // scripts/popup.js
@@ -326,7 +326,7 @@ chrome.runtime.onMessage.addListener(
 
 
 ##### **TODO:**
-- Complete/replace your code in cheesify.js with the one below.
+Complete/replace your code in cheesify.js with the one below.
 
 ```javascript
 // cheesify.js
