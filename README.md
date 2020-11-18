@@ -63,6 +63,11 @@ document.querySelector('.css-selector')
 
 // Get an array of all the elements matching the CSS selector
 document.querySelectorAll('.css-selector')
+
+// Iterate over each selected element
+document.querySelectorAll('.css-selector').forEach(element => {
+  console.log(element)
+})
 ```
 
 
