@@ -114,12 +114,18 @@ We'll create an extension that replaces all images on a web page with photos of 
 
 Let's use [Unsplash Source](https://source.unsplash.com), to find random cheese images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/collection/8884129/`.
 
-> *You can also use `https://source.unsplash.com/featured/?cheese` and replace `cheese` with anything you want (e.g. `wine`, `puppy`, etc.)*
+> You can also use `https://source.unsplash.com/featured/?cheese` and replace `cheese` with anything you want (e.g. `wine`, `puppy`, etc.)
 
 
 ##### **TODO:**
 
 Use what we've learned so far to replace all the images on [this website](https://japantoday.com/) with photos of cheese.
+
+Hint:
+
+1. Select all `img` elements
+2. Iterate over each of them using `forEach`
+3. Update the `src` and `srcset` attributes with the Unsplash url
 
 Once this is done, let's put this script in a Chrome extension!
 
