@@ -11,15 +11,16 @@ By [Trouni Tiet](https://linkedin.com/in/trouni) for [Le Wagon Tokyo](https://ww
 
 ## Setup
 
-All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/).
+All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/) or [VS Code](https://code.visualstudio.com/download).
 
 ##### **TODO:**
-1. Clone the git repository for this workshop
+- Clone the git repository for this workshop
 
 ```zsh
 git clone https://github.com/trouni/workshop-chrome-extension.git
 ```
-1. Alternatively, [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
+
+- OR just [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
 
 ---
 
@@ -33,20 +34,19 @@ Cheese. 🧀
 
 
 But also, here are key aspects that we'll be covering:
-1. What is the basic structure of a Chrome extension
-2. How to create (content) scripts that interact with web pages
-3. How to pass messages between content scripts and background scripts
-4. How to integrate an extension with a third party app
-5. How to publish an extension on the Chrome store
+1. Recap about JavaScript and the DOM
+2. Basic structure of a Chrome extension
+3. Create a script to interact with a web page
+4. Add a popup menu to interact with your extension
+5. Publish an extension on the Chrome store
 
 ---
 
-## Let's get started!
+## JavaScript/DOM Recap
 
+Before we dive into extensions, let's go through a quick JavaScript recap on how to interact with a web page.
 
-### Interacting with the DOM using JavaScript
-
-Before we dive into extensions, let's go through a quick JavaScript refresher on how to interact with a web page.
+### Selecting elements in the DOM using JavaScript
 
 
 ```javascript
@@ -60,13 +60,27 @@ document.querySelector('.css-selector')
 document.querySelectorAll('.css-selector')
 ```
 
+### Listen for events and trigger actions
+
+
+```javascript
+// After selecting an HTML element
+element.addEventListener('click', (event) => {
+  // Some action
+  alert('The event has been triggered')
+})
+```
+
+Check out the [Event reference documentation](https://developer.mozilla.org/en-US/docs/Web/Events) for a complete list of available events.
+
+
 ##### **TODO:**
 1. Open the Chrome console *(**⌘ Cmd + ⌥ Opt + J** on MacOS or **✲ Ctrl + ⇧ Shift + J** on Windows)*
 2. Replace all the images on the page with beautiful photos of cheese 🧀
 
 
 > *You can use [Unsplash Source](https://source.unsplash.com), which gives you random images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/featured/?cheese`*\
-> *Also, I'm not sure why you would want to do that, but you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.)*
+> *Also, you can replace `cheese` in the string with anything you want (e.g. `wine`, `kitten`, `nail-clipper`, etc.), but not sure why you would do that.*
 
 
 Once this is done, let's put this script in a Chrome extension!
