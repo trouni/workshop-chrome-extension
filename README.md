@@ -46,6 +46,7 @@ But also, here are key aspects that we'll be covering:
 
 Before we dive into extensions, let's go through a quick JavaScript recap on how to interact with a web page.
 
+
 ### Selecting elements in the DOM using JavaScript
 
 
