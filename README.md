@@ -368,10 +368,9 @@ You can publish unlisted extension and share the direct link if you don't want t
 
 
 ##### **Final TODO:**
-Show me what you've built! Don't hesitate to contact me and let me know what extensions you've created!
+Show me what you've built! Contact me and let me know what extensions you've created!
 
-
-> ©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet**\
+Workshop/tutorial by **Trouni Tiet**\
 [LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
 
-> Created for [Le Wagon Tokyo](https://www.lewagon.com/tokyo) | Coding Bootcamp | **Change your life, learn to code.**
+Created for [Le Wagon Tokyo](https://www.lewagon.com/tokyo) | Coding Bootcamp | **Change your life, learn to code.**
