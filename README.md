@@ -53,8 +53,9 @@ Before we dive into extensions, let's go through a quick JavaScript recap on how
 
 Open the Chrome console:
 
-`**⌘ Cmd + ⌥ Opt + J**` on MacOS
-`**✲ Ctrl + ⇧ Shift + J**` on Windows
+**`⌘ Cmd + ⌥ Opt + J`** on Mac
+
+**`✲ Ctrl + ⇧ Shift + J`** on Windows
 
 
 ### Selecting elements in the DOM
@@ -113,8 +114,8 @@ We'll create an extension that replaces all images on a web page with photos of 
 
 Let's use [Unsplash Source](https://source.unsplash.com), to find random cheese images [like this one](https://source.unsplash.com/featured/?cheese), using `https://source.unsplash.com/collection/8884129/`.
 
-
 > *You can also use `https://source.unsplash.com/featured/?cheese` and replace `cheese` with anything you want (e.g. `wine`, `puppy`, etc.)*
+
 
 ##### **TODO:**
 
