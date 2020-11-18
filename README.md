@@ -348,7 +348,7 @@ function cheesify() {
 ```
 
 
-Awesome! You should now be able to click on the extension's icon, then click on the 'Cheesify Page' button to run our cheesify script. I have also included a basic 'font picker' script for you to play around if you'd like to experiment more with passing messages between the popup and content script.
+Awesome! You should now be able to click on the extension's icon, then click on the 'Cheesify Page' button to run our cheesify script.
 
 ---
 
