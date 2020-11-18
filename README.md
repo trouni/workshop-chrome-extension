@@ -366,11 +366,12 @@ Awesome! You should now be able to click on the extension's icon, then click on 
 
 You can publish unlisted extension and share the direct link if you don't want to make your extension public.
 
-##### **TODO:**
-- Show me what you've built! Don't hesitate to contact me and let me know what extensions you've created!
 
------
-©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet**\
+##### **Final TODO:**
+Show me what you've built! Don't hesitate to contact me and let me know what extensions you've created!
+
+
+> ©[CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) Workshop/tutorial by **Trouni Tiet**\
 [LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)
 
- Created for [Le Wagon](https://www.lewagon.com) | Coding Bootcamp | **Change your life, learn to code.**
+> Created for [Le Wagon Tokyo](https://www.lewagon.com/tokyo) | Coding Bootcamp | **Change your life, learn to code.**
