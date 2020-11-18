@@ -14,13 +14,13 @@ By [Trouni Tiet](https://linkedin.com/in/trouni) for [Le Wagon Tokyo](https://ww
 All you need for this workshop is [Google Chrome](https://www.google.com/chrome/) and a text editor or IDE like [Sublime Text](https://www.sublimetext.com/) or [VS Code](https://code.visualstudio.com/download).
 
 ##### **TODO:**
-- Clone the git repository for this workshop
+Clone the git repository for this workshop
 
 ```zsh
 git clone https://github.com/trouni/workshop-chrome-extension.git
 ```
 
-- OR just [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
+**OR** [download the ZIP file](https://github.com/trouni/workshop-chrome-extension/archive/master.zip) and unzip the archive to your desktop.
 
 ---
 
