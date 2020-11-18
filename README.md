@@ -50,9 +50,11 @@ Before we dive into extensions, let's go through a quick JavaScript recap on how
 ### Chrome Developer Tools
 
 ##### **TODO:**
-1. Open the Chrome console
 
-`**⌘ Cmd + ⌥ Opt + J**` on MacOS or `**✲ Ctrl + ⇧ Shift + J**` on Windows
+Open the Chrome console:
+
+`**⌘ Cmd + ⌥ Opt + J**` on MacOS
+`**✲ Ctrl + ⇧ Shift + J**` on Windows
 
 
 ### Selecting elements in the DOM
