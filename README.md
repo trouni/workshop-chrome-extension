@@ -1,9 +1,9 @@
 # JavaScript Workshop: Chrome Extension
-#### Build your first Chrome Extension
+### Build your first Chrome Extension
 
-Setup: https://info.lewagon.com/tokyo-chrome-ext
+SETUP: https://info.lewagon.com/tokyo-chrome-ext
 
-By [Trouni Tiet](https://linkedin.com/in/trouni) for [Le Wagon Tokyo](https://www.lewagon.com/tokyo)
+*By [Trouni Tiet](https://linkedin.com/in/trouni) for [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
 
 ---
 
