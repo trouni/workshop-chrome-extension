@@ -1,5 +1,5 @@
-# JavaScript Workshop: Chrome Extension
-### Build your first Chrome Extension
+### JavaScript Workshop
+# Build your first Chrome Extension
 
 SETUP: https://info.lewagon.com/tokyo-chrome-ext
 
