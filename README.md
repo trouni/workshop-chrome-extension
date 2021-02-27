@@ -370,5 +370,6 @@ You can publish unlisted extension and share the direct link if you don't want t
 Show me what you've built! Contact me and let me know what extensions you've created!
 
 Workshop/tutorial by **Trouni Tiet**\
-[LinkedIn](https://linkedin.com/trouni) | [Github](https://github.com/trouni) | [Instagram](https://instagram.com/trouni)\
-Created for [Le Wagon Tokyo](https://www.lewagon.com/tokyo) | Coding Bootcamp | **Change your life, learn to code.**
+[LinkedIn](https://linkedin.com/trouni) | [GitHub](https://github.com/trouni)\
+\
+*Created for [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
