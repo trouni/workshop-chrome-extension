@@ -136,7 +136,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
 // manifest.json
 
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "My first Chrome Extension",
   "description": "Chrome extension workshop for Le Wagon Tokyo",
   "author": "Your name",
@@ -148,7 +148,7 @@ The manifest is a simple JSON file that tells the browser about your web applica
   "background": {
     // ...
   },
-  "browser_action": {
+  "action": {
     // ...
   },
   "icons": {
@@ -264,7 +264,7 @@ Add this to your manifest.json file.
 {
   // ...
 
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_title": "My first Chrome Extension"
   },
